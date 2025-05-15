@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conto alla rovescia</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <main>
+    <h2>Quanto manca al compleanno di Pato?</h2>
+    <h1 id="countdown">Caricamento...</h1>
+  </main>
+  <script>
+    function getNextBirthday() {
+      const now = new Date();
+      let next = new Date(now.getFullYear(), 0, 20); // 20 gennaio
+
+      if (now > next) {
+        next.setFullYear(next.getFullYear() + 1);
+      }
+
+      return next;
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const birthday = getNextBirthday();
+      const diff = birthday - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown").textContent =
+        `${days} giorni, ${hours} ore, ${minutes} minuti, ${seconds} secondi`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
