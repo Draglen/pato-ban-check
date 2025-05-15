@@ -1,0 +1,33 @@
+body {
+  background-color: #111;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  font-size: 6rem;
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 3s ease infinite;
+  text-align: center;
+}
+
+.si {
+  background-image: linear-gradient(270deg, #00ffcc, #00bfff, #ff00cc);
+}
+
+.no {
+  background-image: linear-gradient(270deg, #ff4d4d, #ff1a1a, #cc0000);
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
